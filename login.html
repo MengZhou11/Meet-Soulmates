@@ -24,69 +24,121 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
-    <div class="container">
-        <a class="navbar-brand" href="#"><img src="imgs/logo.png" alt="#" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+        <div class="container">
+            <a class="nav-link" href="index.html"><img src="imgs/logo.png" alt="" /></a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
 
-        <div class="collapse navbar-collapse" id="show-menu">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="matching.html">Matching</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signup.html">Profile</a>
-
-                <li class="nav-item .search-container">
-                    <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
-                    <form>
-                        <input type="search">
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-user"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
-                </li>
-            </ul>
+            <div class="topnav-right" id="show-menu">
+                <ul class="nav nav-pills">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matching.html">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Log In/Sign Up</a>
+    
+                    <li class="nav-item .search-container">
+                        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
+                        <form>
+                            <input type="search">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="far fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matching.html"><i class="far fa-heart"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-  </nav>
-  <br /><br /><br /><br /><br /><br />
+    </nav>
 
-	<div class="register">
+          
+  <header id="home">
+    <div class="overlay">
 		<div class="container">
-      <div class="clearfix">
-		   <form> 
-				     <div class="register-bottom-grid">
-						    <h4>Sign In </h4>
-							 <div>
-								<span>Email<label></label></span>
-								<input type="text">
-							 </div>
-							 <div>
-                 <span>Password<label></label></span>
-                 <input type="text">
-							 </div>
-							 <div class="clearfix"> </div>
-					    </div>
-				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-          <button><a href="blog.html" class="text">Sign In</a></button>
-          </div>
-				</div>
-		   </div>
+            <div class="row clearfix">
+            <div id = "login">
+                <h3 style="color: rgb(40,40,50);">Sign In </h3>
+		    <form> 
+                <div class="input_field">
+                    <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                    <input type="text" name="email" placeholder="Email" required/>
+                </div>
+                <div class="input_field">
+                    <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                    <input type="text" name="password" placeholder="Password" required/>
+                </div>
+                <button><a href="index.html" class="text">Sign In</a></button>
+			</form>
+        </div></div></div>
 	</div>
+</header>
+<!-- 
+<header id="home">
+    <div class="overlay">
+        <div class="container"  id="login">
+            <div class="col-sm-5 profile_left">
+            <img src="imgs/profile.png" class="img-responsive" alt=""/>
+           <br\><br\>
+           <div class="col-sm-7 col_6">
+           </br>
+            <p class="movie_option"><strong>Name : </strong>Typical User</p>
+            <p class="movie_option"><strong>Email : </strong>user@gmail.com</p>
+            <p class="movie_option"><strong>Personality type : </strong>type</p>
+            will need to add editing profile function-->
+            <!-- <button id="edit_profile"><a href="profile.html" class="text-uppercase">Edit Profile</a></button> 
+          </div>
+      </div>
+    <div class="clearfix"> </div>
+    </div>
+</header> -->
+
+
+    <footer>
+        <div class="copyright text-center">
+            <p>Copyright 2022  Design for Cloud Computing Group Project</p>
+        </div>
+    </footer>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        
+        'use strict';
+        
+        var winH = $(window).height();
+        
+        $('header').height(winH);  
+        
+        $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
+        
+        $('.navbar ul li a.search').on('click', function (e) {
+            e.preventDefault();
+        });
+        $('.navbar a.search').on('click', function () {
+            $('.navbar form').fadeToggle();
+        });
+        
+        $('.navbar ul.navbar-nav li a').on('click', function (e) {
+            
+            var getAttr = $(this).attr('href');
+            
+            e.preventDefault();
+            $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+        });
+    })
+</script>
 </body>
 </html>	
 

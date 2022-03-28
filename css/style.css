@@ -112,6 +112,67 @@ header .container > div h1 {
     font-size: 90px;
 }
 
+/* Meng Added for profile page*/ 
+#edit_profile{
+    background-color: transparent;
+    border: 2px solid gray;
+    margin-right: 220px;
+    margin-top: 5px;
+}
+#profile{
+    font-size: medium;
+    font-style: normal;
+    margin:0em 25em;
+    padding-top: 2em;
+}
+#signup_form{
+    margin:0em 23em;
+    padding-top: 2em;
+}
+#signup_form input{
+    font-size: medium;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(40,40,50);
+    text-align: center;
+    margin-left: 0.5em;
+    margin-top: 0.8em;
+}
+#login{
+    margin:1em 23em;
+    padding-top: 2em;
+}
+#login input{
+    align-items: right;
+    font-size: medium;
+    font-weight: bold;
+    color: rgb(40,40,50);
+    text-align: center;
+    margin-left: 0.5em;
+    margin-top: 0.8em;
+}
+#matching{
+    margin: 0em 0em;
+    color: rgb(205, 205,205);
+}
+
+#blog_format{
+    padding-left: 25em;
+    padding-top: 12em;
+    display: block;
+}
+
+#create_button{
+    background-color: rgb(180, 125, 125); 
+    border: 2em white;
+}
+
+
+
+
+
+/*Ended here */
+
 header button {
     background-color: transparent;
     display: block;
@@ -574,7 +635,7 @@ footer .copyright p {
         background-color: rgba(189, 140, 191, .85);
     }
     .navbar ul li {
-        margin: 10px 0;
+        margin: 5 0;
     }
     nav.navbar form {
         width: 100%;
