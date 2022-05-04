@@ -25,45 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
-        <div class="container">
-            <a class="nav-link" href="index.html"><img src="imgs/logo.png" alt="" /></a>
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-
-            <div class="topnav-right" id="show-menu">
-                <ul class="nav nav-pills">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="matching.html">Matching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.html">Log In/Sign Up</a>
-    
-                    <li class="nav-item .search-container">
-                        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
-                        <form>
-                            <input type="search">
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html"><i class="far fa-user"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="matching.html"><i class="far fa-heart"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
+	{% include 'head_bar.html' %}
 
     <header id="home">
         <!-- <div class="overlay">
@@ -112,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
               <div class="row clearfix">
                 <div id="signup_form"><h3 style="color: rgb(40,40,50);">Registration Form</h3>
-                  <form>
+                  <form action="/signup/submit/" method="post">
                     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
                       <input type="email" name="email" placeholder="Email" required />
                     </div>
@@ -120,30 +82,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       <input type="password" name="password" placeholder="Password" required />
                     </div>
                     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                      <input type="password" name="password" placeholder="Re-type Password" required />
+                      <input type="password2" name="password2" placeholder="Re-type Password" required />
                     </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                          <input type="text" name="name" placeholder="First Name" />
-                      </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                          <input type="text" name="name" placeholder="Last Name" required />
-                      </div>
-                          <div class="input_field radio_option">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="first_name" placeholder="First Name" />
+                    </div>
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="last_name" placeholder="Last Name" required />
+                    </div>
+                    <div class="input_field radio_option">
                         <input type="radio" name="radiogroup1" id="rd1">
                         <label for="rd1">Male</label>
                         <input type="radio" name="radiogroup1" id="rd2">
                         <label for="rd2">Female</label>
-                        </div>
-                      <div class="input_field checkbox_option">
+                    </div>
+                    <div class="input_field checkbox_option">
                           <input type="checkbox" id="cb1">
                           <label for="cb1">I agree with terms and conditions</label>
-                      </div>
-                      <div class="input_field checkbox_option">
+                    </div>
+                    <div class="input_field checkbox_option">
                           <input type="checkbox" id="cb2">
                           <label for="cb2">I want to receive the newsletter</label>
-                      </div>
+                    </div>
                     <input class="button" type="submit" value="Register"/></br></br>
-                    <a href="login.html" type="btn btn-primary" role="button" style="color: rgb(205,205,205);"><u>Already have an account? Log in!</u></a>
+                    <a href="/login" type="btn btn-primary" role="button" style="color: rgb(205,205,205);"><u>Already have an account? Log in!</u></a>
                   </form>
                 </div>
               </div>
