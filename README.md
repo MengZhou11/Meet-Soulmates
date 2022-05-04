@@ -4,6 +4,7 @@
 
 
 python3.8
+pip install django==2.1.10
 
 pip install -r requirements.txt
 
