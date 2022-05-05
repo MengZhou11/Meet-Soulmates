@@ -19,6 +19,14 @@ def blog(request):
     return render_to_response('blog.html', {'request': request,})
 
 @csrf_exempt
+def blog_detail(request):
+    return render_to_response('blog_detail.html', {'request': request,})
+
+@csrf_exempt
+def blog_create(request):
+    return render_to_response('blog_create.html', {'request': request,})
+
+@csrf_exempt
 def matching(request):
     return render_to_response('matching.html', {'request': request,})
 
