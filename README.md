@@ -5,6 +5,10 @@
 
 python3.8
 
+pip install --user django-import_export
+
+pip install django==2.1.10
+
 pip install -r requirements.txt
 
 每次更新之后运行

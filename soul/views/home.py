@@ -2,7 +2,6 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib import auth
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView
 from django.contrib.auth.models import User
 from soul import models
 
