@@ -14,16 +14,16 @@ def index(request):
     return render_to_response('index.html', {'request': request,})
 
 @csrf_exempt
-def blog(request):
-    return render_to_response('blog.html', {'request': request,})
+def forum(request):
+    return render_to_response('forum.html', {'request': request,})
 
 @csrf_exempt
-def blog_detail(request):
-    return render_to_response('blog_detail.html', {'request': request,})
+def post_detail(request):
+    return render_to_response('post_detail.html', {'request': request,})
 
 @csrf_exempt
-def blog_create(request):
-    return render_to_response('blog_create.html', {'request': request,})
+def post_create(request):
+    return render_to_response('post_create.html', {'request': request,})
 
 @csrf_exempt
 def matching(request):
