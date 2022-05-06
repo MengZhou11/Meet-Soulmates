@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+</head>
+<body>
+{% include 'head_bar.html' %}
+<header id="home">
+    <div class="overlay">
+        <div id="blog_format">
+            <div class="col-sm-5 profile_left">
+				<h3 style="color: rgb(40,40,50);padding-bottom: 0.5em;">Create a Post</h3>
+            </div>
+			<div class = "col-3">
+				<a class="btn btn-primary" href="/forum" role="button" id="create_button" style="margin-right: 0em;">Go Back</a>
+			</div>
+      		
+
+
+                <!-- Start of Page Container -->
+
+                            <article class="type-page hentry clearfix" style="padding: 0px 15px">
+                                <hr style="margin-right: 10em;">
+                                    <p style="margin: 20px;color:rgb(40,40,50);">A blog post is any article, news piece, or guide that's published in the blog section of a website. A blog post typically covers a specific topic or query, is educational in nature, ranges from 600 to 2,000+ words. </p>
+                            </article>
+
+                            <div class="row-1" style="color:rgb(40,40,50);padding-left: 40px;">
+                                <div class="">
+                                    <form action="/post_create/submit/" method="post">
+                                        <div class="row-2">
+                                                <label for="reason" style="margin-right: 20px;">Subject <span>*</span></label>
+                                        </div>
+                                        <div class="row-2 ">
+                                                <input type="text" name="subject" id="subject" size="30">
+                                        </div>
+                                        <div cclass="row-2">
+                                                <label for="message" style="padding-top:15px;margin-right: 20px;">Post Content <span>*</span> </label>
+                                        </div>
+                                        <div class="row-2" >
+                                                <textarea name="content" id="content" rows="6" cols="80"></textarea>
+                                        </div>
+
+                                        <div class = "row-1">
+                                            <input class="btn btn-primary" type="submit" value="Create Post"/>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                      {% if error %}
+                        </br></br>
+                        <h2 style="color: rgb(255,100,100);">{{error}}</h2>
+                      {% endif %}
+                <!-- End of Page Container -->
+        
+        
+        </div>
+	</div>
+</header>
+
+<footer>
+    <div class="copyright text-center">
+        <p>Copyright 2022  Design for Cloud Computing Group Project</p>
+    </div>
+</footer>
+
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        
+        'use strict';
+        
+        var winH = $(window).height();
+        
+        $('header').height(winH);  
+        
+        $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
+        
+        $('.navbar ul li a.search').on('click', function (e) {
+            e.preventDefault();
+        });
+        $('.navbar a.search').on('click', function () {
+            $('.navbar form').fadeToggle();
+        });
+        
+        $('.navbar ul.navbar-nav li a').on('click', function (e) {
+            
+            var getAttr = $(this).attr('href');
+            
+            e.preventDefault();
+            $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+        });
+    })
+</script>
+</body>
+</html>

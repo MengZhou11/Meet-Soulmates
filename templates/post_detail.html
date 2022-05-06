@@ -10,34 +10,42 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 <body>
-	<!-- <div class="header">	
-      <div class="container"> 
-  	     <div class="logo">
-			<h1><a href="index.html">Meet Soulmate</a></h1>
-		 </div>
-		 <div class="clearfix"></div>
-		</div>
-	</div> -->
-	{% include 'head_bar.html' %}
-	
+{% include 'head_bar.html' %}
 <header id="home">
     <div class="overlay">
         <div id="blog_format">
             <div class="col-sm-5 profile_left">
-				<h3 style="color: rgb(40,40,50);padding-bottom: 0.5em;">Blog</h3>
+				<h3 style="color: rgb(40,40,50);padding-bottom: 0.5em;">Post Detail</h3>
+            </div>
 			<div class = "col-3">
-				<a class="btn btn-primary" href="" role="button" id="create_button" style="margin-right: 0em;">Create New Post</a>
+				<a class="btn btn-primary" href="/forum" role="button" id="create_button" style="margin-right: 0em;">Go Back</a>
 			</div>
-      		</div>
+                <hr style="margin-right: 10em;">
+      	</div>
+        
+          <div class="" style="margin: 2em 30em; ">
+            <article>
+                <h2 style="color:rgb(40,40,50);">{{blog.subject}}</h2>
+                <span class="article-meta"> <img src="/static/imgs/calendar.png" alt="icon"> {{blog.create_date}}    <img src="/static/imgs/author.png" alt="icon"> {{blog.user}}</span>
+        </article>
+
+        <div style="color: rgb(194, 194, 194); padding-top: 1em; font-family: 'Times New Roman', Times, serif; line-height: 1cm;">
+            <h5 >{{blog.content}}</h5>
+        </div> 
+          </div>
+ 
+
     	</div>
 	</div>
 </header>
 
-	<footer>
-		<div class="copyright text-center">
-			<p>Copyright 2022  Design for Cloud Computing Group Project</p>
-		</div>
-	</footer>
+
+
+<footer>
+    <div class="copyright text-center">
+        <p>Copyright 2022  Design for Cloud Computing Group Project</p>
+    </div>
+</footer>
 
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
@@ -69,4 +77,4 @@
     })
 </script>
 </body>
-</html>		
+</html>

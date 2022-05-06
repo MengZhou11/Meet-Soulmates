@@ -10,25 +10,33 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 <body>
-	<!-- <div class="header">	
-      <div class="container"> 
-  	     <div class="logo">
-			<h1><a href="index.html">Meet Soulmate</a></h1>
-		 </div>
-		 <div class="clearfix"></div>
-		</div>
-	</div> -->
 	{% include 'head_bar.html' %}
+    {% block content %}
 
 <header>
 	<div class="overlay">
-		<div class="container">
-			<div id="matching">
-				  <h3>We are working on this page... </h3>
+        <div id="blog_format">
+            <div class="col-sm-5 profile_left">
+				<h3 style="color: rgb(40,40,50);padding-bottom: 0.5em;">Matching</h3>
+            </div>
+			<div class = "col-5">
+				<a class="btn btn-primary" href="/matching" role="button" id="create_button" >Fresh Matching List</a>
 			</div>
-    	</div>
+            <hr style="margin-right: 10em;">
+        </div>
+
+<!-- {% for match in matched_objects %} -->
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+ <!-- {% endfor %} -->
+
 	</div>
 </header>
+        {% endblock content %} 
+
 
 	<footer>
 		<div class="copyright text-center">

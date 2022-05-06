@@ -14,8 +14,46 @@ def index(request):
     return render_to_response('index.html', {'request': request,})
 
 @csrf_exempt
-def blog(request):
-    return render_to_response('blog.html', {'request': request,})
+def forum(request):
+    blogs = models.Blog.objects.order_by('-create_date')
+    blogs2 = blogs[6:12]
+    blogs = blogs[0:6]
+    return render_to_response('forum.html', {'request': request,
+                                             'blogs': blogs,
+                                             'blogs2': blogs2,})
+
+@csrf_exempt
+def post_detail(request, blog_id):
+    blog = models.Blog.objects.get(id=blog_id)
+    return render_to_response('post_detail.html', {'request': request,
+                                                   'blog': blog,})
+
+@csrf_exempt
+def post_create(request):
+    if request.user.is_active:
+        return render_to_response('post_create.html', {'request': request,})
+    else:
+        return redirect('/signup')
+
+@csrf_exempt
+def post_create_submit(request):
+    if not request.user.is_active:
+        return redirect('/signup')
+    if request.POST.get('subject') == "" or request.POST.get('content') == "":
+        return redirect('/post_create/error')
+    profile = models.Profile.objects.get(email=request.user.username)
+    new_post = models.Blog(
+        user=profile.first_name + " " + profile.last_name,
+        subject=request.POST.get('subject'),
+        content=request.POST.get('content'),
+        create_date=timezone.now(),
+    )
+    new_post.save()
+    return redirect('/forum/' + str(new_post.id))
+
+@csrf_exempt
+def post_create_error(request):
+    return render_to_response('post_create.html', {'error': "Subject or context is empty",})
 
 @csrf_exempt
 def matching(request):
@@ -75,7 +113,7 @@ def login_submit(request):
 
 @csrf_exempt
 def signup_error(request):
-    return render_to_response('signup.html')
+    return render_to_response('signup.html', {'error': "Password not match",})
 
 @csrf_exempt
 def logout(request):

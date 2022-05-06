@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+</head>
+
+<body>
+	{% include 'head_bar.html' %}
+	
+<header id="home">
+    <div class="overlay">
+        <div id="blog_format">
+            <div class="col-sm-5 profile_left">
+				<h3 style="color: rgb(40,40,50);padding-bottom: 0.5em;">Forum</h3>
+            </div>
+			<div class = "col-5">
+				<a class="btn btn-primary" href="/post_create" role="button" id="create_button" >Create New Post</a>
+			</div>
+            <hr style="margin-right: 10em;">
+        </div>
+              <!-- {% block content %} -->
+              <!-- {% for post in post_objects %} -->
+
+              <!-- {% endfor %}
+              {% endblock content %} -->
+              
+
+                <!-- Start of Page Container -->
+                <div class="page-container" style="padding:2em 32em; background-color: rgb(211, 217, 217); margin-top: 2em;">
+                            <div class="row">
+
+                                    <!-- start of page content -->
+                                    <div class="span8 page-content">
+
+                                            <!-- Basic Home Page Template -->
+                                            <div class="row separator">
+                                                    <section class="span4 articles-list">
+                                                            <ul class="articles">
+
+                                                                    {% if blogs %}
+                                                                        {% for blog in blogs %}
+                                                                            <tr class="even pointer">
+                                                                                <td class=" ">{{ document.name }}</td>
+                                                                                <td class=" ">{{ document.folder }}</td>
+                                                                                <td class=" ">{{ document.created }}</td>
+                                                                                <td class=" ">{{ document.modified }}</td>
+                                                                            </tr>
+                                                                            <li class="article-entry">
+
+                                                                                    <h4><img src="/static/imgs/icon.png" alt="icon"><a href={{ blog.id }}> {{ blog.subject }}</a></h4>
+                                                                                    <span class="article-meta">{{ blog.create_date }}</span>
+
+                                                                            </li>
+                                                                        {% endfor %}
+                                                                    {% endif %}
+                                                            </ul>
+                                                    </section>
+
+
+                                    <section class="span4 articles-list">
+                                            <ul class="articles">
+                                                    {% if blogs2 %}
+                                                        {% for blog in blogs2 %}
+                                                            <tr class="even pointer">
+                                                                <td class=" ">{{ document.name }}</td>
+                                                                <td class=" ">{{ document.folder }}</td>
+                                                                <td class=" ">{{ document.created }}</td>
+                                                                <td class=" ">{{ document.modified }}</td>
+                                                            </tr>
+                                                            <li class="article-entry">
+
+                                                                    <h4><img src="/static/imgs/icon.png" alt="icon"><a href={{ blog.id }}> {{ blog.subject }}</a></h4>
+                                                                    <span class="article-meta">{{ blog.create_date }}</span>
+
+                                                            </li>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                            </ul>
+                                    </section>
+                                            </div>
+                                    </div>
+                                    <!-- end of page content -->
+</div></div>
+
+</div></div>
+</header>
+
+
+	<footer>
+		<div class="copyright text-center">
+			<p>Copyright 2022  Design for Cloud Computing Group Project</p>
+		</div>
+	</footer>
+
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        
+        'use strict';
+        
+        var winH = $(window).height();
+        
+        $('header').height(winH);  
+        
+        $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
+        
+        $('.navbar ul li a.search').on('click', function (e) {
+            e.preventDefault();
+        });
+        $('.navbar a.search').on('click', function () {
+            $('.navbar form').fadeToggle();
+        });
+        
+        $('.navbar ul.navbar-nav li a').on('click', function (e) {
+            
+            var getAttr = $(this).attr('href');
+            
+            e.preventDefault();
+            $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+        });
+    })
+</script>
+</body>
+</html>		
