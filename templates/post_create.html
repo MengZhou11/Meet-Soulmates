@@ -32,26 +32,31 @@
 
                             <div class="row-1" style="color:rgb(40,40,50);padding-left: 40px;">
                                 <div class="">
-                                    <div class="row-2">
-                                            <label for="reason" style="margin-right: 20px;">Subject <span>*</span></label>
-                                    </div>
-                                    <div class="row-2 ">
-                                            <input type="text" name="reason" id="reason" size="30">
-                                    </div>
-                                    <div cclass="row-2">
-                                            <label for="message" style="padding-top:15px;margin-right: 20px;">Post Content <span>*</span> </label>
-                                    </div>
-                                    <div class="row-2" >
-                                            <textarea name="message" id="textarea-post" rows="6" cols="80"></textarea>
-                                    </div>
+                                    <form action="/post_create/submit/" method="post">
+                                        <div class="row-2">
+                                                <label for="reason" style="margin-right: 20px;">Subject <span>*</span></label>
+                                        </div>
+                                        <div class="row-2 ">
+                                                <input type="text" name="subject" id="subject" size="30">
+                                        </div>
+                                        <div cclass="row-2">
+                                                <label for="message" style="padding-top:15px;margin-right: 20px;">Post Content <span>*</span> </label>
+                                        </div>
+                                        <div class="row-2" >
+                                                <textarea name="content" id="content" rows="6" cols="80"></textarea>
+                                        </div>
 
-                                    <div class = "row-1">
-                                        <a class="btn btn-primary" href="/forum" role="button" style="margin-top:10px; background-color: rgb(180, 125, 125); 
-                                        border: 2em white;">Create Post</a>
-                                    </div>
+                                        <div class = "row-1">
+                                            <input class="btn btn-primary" type="submit" value="Create Post"/>
+                                        </div>
+                                    </form>
 
                                 </div>
-                            </div>  
+                            </div>
+                      {% if error %}
+                        </br></br>
+                        <h2 style="color: rgb(255,100,100);">{{error}}</h2>
+                      {% endif %}
                 <!-- End of Page Container -->
         
         

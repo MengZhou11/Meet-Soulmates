@@ -16,6 +16,8 @@ urlpatterns = [
     path('logout/', home.logout,),
     path('signup/error/', home.signup_error,),
     path('signup/submit/', home.signup_submit,),
-    path('post_detail/', home.post_detail),
-    path('post_create',home.post_create),
+    path('forum/<blog_id>', home.post_detail),
+    path('post_create/',home.post_create),
+    path('post_create/error/',home.post_create_error),
+    path('post_create/submit/',home.post_create_submit),
 ]

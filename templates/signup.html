@@ -47,6 +47,10 @@
                     </div>
                     <input class="button" type="submit" value="Register"/></br></br>
                     <a href="/login" type="btn btn-primary" role="button" style="color: rgb(205,205,205);"><u>Already have an account? Log in!</u></a>
+                      {% if error %}
+                        </br></br>
+                        <h2 style="color: rgb(255,100,100);">{{error}}</h2>
+                      {% endif %}
                   </form>
                 </div>
               </div>

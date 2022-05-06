@@ -42,73 +42,45 @@
                                             <div class="row separator">
                                                     <section class="span4 articles-list">
                                                             <ul class="articles">
-                                                                    <li class="article-entry">
-                                                                        
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Integrating WordPress with Your Website</a></h4>
-                                                                            <span class="article-meta">25 Feb, 2013 in <a title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-                                                     
-                                                                    </li>
-                                                                    <li class="article-entry">
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> WordPress Site Maintenance</a></h4>
-                                                                            <span class="article-meta">24 Feb, 2013 in <a title="View all posts in Website Dev">Website Dev</a></span>
-                                                             
-                                                                    </li>
-                                                                    <li class="article-entry">
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Meta Tags in WordPress</a></h4>
-                                                                            <span class="article-meta">23 Feb, 2013 in <a title="View all posts in Website Dev">Website Dev</a></span>
-                                                        
-                                                                    </li>
-                                                                    <li class="article-entry">
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> WordPress in Your Language</a></h4>
-                                                                            <span class="article-meta">22 Feb, 2013 in <a title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-                                                            
-                                                                    </li>
-                                                                    <li class="article-entry">
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Know Your Sources</a></h4>
-                                                                            <span class="article-meta">22 Feb, 2013 in <a title="View all posts in Website Dev">Website Dev</a></span>
-                                                               
-                                                                    </li>
-                                                                    <li class="article-entry">
-                                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Validating a Website</a></h4>
-                                                                            <span class="article-meta">21 Feb, 2013 in <a title="View all posts in Website Dev">Website Dev</a></span>
-                                                                
-                                                                    </li>
+
+                                                                    {% if blogs %}
+                                                                        {% for blog in blogs %}
+                                                                            <tr class="even pointer">
+                                                                                <td class=" ">{{ document.name }}</td>
+                                                                                <td class=" ">{{ document.folder }}</td>
+                                                                                <td class=" ">{{ document.created }}</td>
+                                                                                <td class=" ">{{ document.modified }}</td>
+                                                                            </tr>
+                                                                            <li class="article-entry">
+
+                                                                                    <h4><img src="/static/imgs/icon.png" alt="icon"><a href={{ blog.id }}> {{ blog.subject }}</a></h4>
+                                                                                    <span class="article-meta">{{ blog.create_date }}</span>
+
+                                                                            </li>
+                                                                        {% endfor %}
+                                                                    {% endif %}
                                                             </ul>
                                                     </section>
 
 
                                     <section class="span4 articles-list">
                                             <ul class="articles">
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Integrating WordPress with Your Website</a></h4>
-                                                            <span class="article-meta">25 Feb, 2013 in <a title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-                                            
-                                                    </li>
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Using Javascript</a></h4>
-                                                            <span class="article-meta">25 Feb, 2013 in <a title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-                                            
-                                                    </li>
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Using Images</a></h4>
-                                                            <span class="article-meta">25 Feb, 2013 in <a title="View all posts in Designing in WordPress">Designing in WordPress</a></span>
-                                            
-                                                    </li>
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> Using Video</a></h4>
-                                                            <span class="article-meta">24 Feb, 2013 in <a title="View all posts in WordPress Plugins">WordPress Plugins</a></span>
-                                            
-                                                    </li>
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> WordPress Site Maintenance</a></h4>
-                                                            <span class="article-meta">24 Feb, 2013 in <a title="View all posts in Website Dev">Website Dev</a></span>
-                                        
-                                                    </li>
-                                                    <li class="article-entry">
-                                                            <h4><img src="/static/imgs/icon.png" alt="icon"><a href="/post_detail"> WordPress CSS Information and Techniques</a></h4>
-                                                            <span class="article-meta">24 Feb, 2013 in <a title="View all posts in Theme Development">Theme Development</a></span>
-                
-                                                    </li>
+                                                    {% if blogs2 %}
+                                                        {% for blog in blogs2 %}
+                                                            <tr class="even pointer">
+                                                                <td class=" ">{{ document.name }}</td>
+                                                                <td class=" ">{{ document.folder }}</td>
+                                                                <td class=" ">{{ document.created }}</td>
+                                                                <td class=" ">{{ document.modified }}</td>
+                                                            </tr>
+                                                            <li class="article-entry">
+
+                                                                    <h4><img src="/static/imgs/icon.png" alt="icon"><a href={{ blog.id }}> {{ blog.subject }}</a></h4>
+                                                                    <span class="article-meta">{{ blog.create_date }}</span>
+
+                                                            </li>
+                                                        {% endfor %}
+                                                    {% endif %}
                                             </ul>
                                     </section>
                                             </div>

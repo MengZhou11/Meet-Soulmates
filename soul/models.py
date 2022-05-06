@@ -14,3 +14,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
 
+class Blog(models.Model):
+    user = models.CharField(max_length=50)
+    subject = models.CharField(max_length=50)
+    content = models.CharField(max_length=500)
+    create_date = models.DateTimeField(blank=True,null=True)
+
+    def __str__(self):
+        return self.subject
+
