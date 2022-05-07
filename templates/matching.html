@@ -11,9 +11,8 @@
 </head>
 <body>
 	{% include 'head_bar.html' %}
-    {% block content %}
 
-<header>
+<header id="home">
 	<div class="overlay">
         <div id="blog_format">
             <div class="col-sm-5 profile_left">
@@ -24,20 +23,23 @@
 			</div>
             <hr style="margin-right: 10em;">
         </div>
+                        <!-- Start of Page Container -->
+                        <div class="page-container" style="padding:2em 32em;  margin-top: 2em; color: rgb(200, 200, 209);">
+                            <img src="/static/imgs/heart.png" alt="matched"/></img>                               
+                            <div class="row" style="padding-bottom: 2em;">
 
-<!-- {% for match in matched_objects %} -->
-        <ul>
-            <li>
+                                <ul>
+                                    <br><br>
+                                    <i class="fa fa-user"><strong>  Name : </strong>{{ f_name }} {{ l_name }}</p></i><br>
+                                    <i class="fa fa-envelope"><strong>  Email : </strong>{{ email }}</p></i><br>
+                                    <i class="fa fa-heart"><strong>  Personality type : </strong>{{ type }}</p></i><br>
+                                </ul>
+                                
+                        </div>
 
-            </li>
-        </ul>
- <!-- {% endfor %} -->
-
-	</div>
+</div></div>
 </header>
-        {% endblock content %} 
-
-
+        
 	<footer>
 		<div class="copyright text-center">
 			<p>Copyright 2022  Design for Cloud Computing Group Project</p>
