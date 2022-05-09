@@ -10,6 +10,11 @@ class Profile(models.Model):
     email = models.CharField(max_length=50)
     create_date = models.DateTimeField(blank=True,null=True)
     update_date = models.DateTimeField(blank=True,null=True)
+    EXT = models.CharField(max_length=100)
+    EST = models.CharField(max_length=100)
+    AGR = models.CharField(max_length=100)
+    CSN = models.CharField(max_length=100)
+    OPN = models.CharField(max_length=100)
 
     def __str__(self):
         return self.first_name + " " + self.last_name

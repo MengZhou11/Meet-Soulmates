@@ -20,4 +20,6 @@ urlpatterns = [
     path('post_create/',home.post_create),
     path('post_create/error/',home.post_create_error),
     path('post_create/submit/',home.post_create_submit),
+    path('personality_test/',home.personality_test),
+    path('personality_test/submit/',home.personality_test_submit),
 ]

@@ -3,7 +3,10 @@ from django.contrib import auth
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from django.db.models import Q
 from soul import models
+import joblib
+import pandas as pd
 
 
 '''提交表单必须加csrf'''
@@ -57,7 +60,32 @@ def post_create_error(request):
 
 @csrf_exempt
 def matching(request):
-    return render_to_response('matching.html', {'request': request,})
+    if request.user.is_active:
+        profile = models.Profile.objects.get(email=request.user.username)
+        if profile.type == 'unknown':
+            return redirect('/personality_test')
+        matching_list = models.Profile.objects.filter(type=profile.type).filter(~Q(email=request.user.username)).order_by('?')
+        if len(matching_list) == 0:
+            matching_list = models.Profile.objects.filter(~Q(email=request.user.username)).order_by('?')
+        if len(matching_list) == 0:
+            first_name = 'You'
+            last_name = 'Are'
+            email = 'The Only'
+            persona = 'User'
+        else:
+            user = matching_list[0]
+            first_name = user.first_name
+            last_name = user.last_name
+            email = user.email
+            persona = user.type
+
+        return render_to_response('matching.html', {'f_name': first_name,
+                                                   'l_name': last_name,
+                                                   'email': email,
+                                                   'type': persona,
+                                                   'request': request,})
+    else:
+        return redirect('/signup')
 
 @csrf_exempt
 def profile(request):
@@ -89,7 +117,7 @@ def signup_submit(request):
     new_profile = models.Profile(
         first_name=request.POST.get('first_name'),
         last_name=request.POST.get('last_name'),
-        type='test_type',
+        type='unknown',
         email=request.POST.get('email'),
         update_date=timezone.now(),
         create_date=timezone.now(),
@@ -110,6 +138,72 @@ def login_submit(request):
         return redirect('/index')
     else:
         return render_to_response('page_404.html')
+
+@csrf_exempt
+def personality_test(request):
+    if request.user.is_active:
+        return render_to_response('personality_test.html', {'request': request,})
+    else:
+        return redirect('/signup')
+
+@csrf_exempt
+def personality_test_submit(request):
+    if request.user.is_active:
+        profile = models.Profile.objects.get(email=request.user.username)
+        EXT = []
+        EST = []
+        AGR = []
+        CSN = []
+        OPN = []
+        for i in range(1, 11):
+            if request.POST.get('EXT' + str(i)):
+                EXT.append(request.POST.get('EXT' + str(i)))
+            else:
+                EXT.append('0')
+
+            if request.POST.get('EST' + str(i)):
+                EST.append(request.POST.get('EST' + str(i)))
+            else:
+                EST.append('0')
+
+            if request.POST.get('AGR' + str(i)):
+                AGR.append(request.POST.get('AGR' + str(i)))
+            else:
+                AGR.append('0')
+
+            if request.POST.get('CSN' + str(i)):
+                CSN.append(request.POST.get('CSN' + str(i)))
+            else:
+                CSN.append('0')
+
+            if request.POST.get('OPN' + str(i)):
+                OPN.append(request.POST.get('OPN' + str(i)))
+            else:
+                OPN.append('0')
+        profile.EXT = ";".join(EXT)
+        profile.EST = ";".join(EST)
+        profile.AGR = ";".join(AGR)
+        profile.CSN = ";".join(CSN)
+        profile.OPN = ";".join(OPN)
+        l = {}
+        for i,v in enumerate(EXT):
+            l['EXT' + str(i + 1)] = [v]
+        for i,v in enumerate(EST):
+            l['EST' + str(i + 1)] = [v]
+        for i,v in enumerate(AGR):
+            l['AGR' + str(i + 1)] = [v]
+        for i,v in enumerate(CSN):
+            l['CSN' + str(i + 1)] = [v]
+        for i,v in enumerate(OPN):
+            l['OPN' + str(i + 1)] = [v]
+        input = pd.DataFrame(l)
+        model = joblib.load('soul/my_model.pkl')
+        profile.type = model.predict(input)[0]
+        print(profile.type)
+        profile.save()
+        return redirect('/profile')
+    else:
+        return redirect('/signup')
 
 @csrf_exempt
 def signup_error(request):
