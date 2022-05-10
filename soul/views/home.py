@@ -112,6 +112,11 @@ def login(request):
 def signup_submit(request):
     if request.POST.get('password') != request.POST.get('password2'):
         return redirect('/signup/error')
+    try:
+        profile = models.Profile.objects.get(email=request.POST.get('email'))
+        return redirect('/signup/error2')
+    except:
+        pass
     User.objects.create_user(username=request.POST.get('email'), password=request.POST.get('password'))
     user = auth.authenticate(username=request.POST.get('email'), password=request.POST.get('password'))
     new_profile = models.Profile(
@@ -208,6 +213,10 @@ def personality_test_submit(request):
 @csrf_exempt
 def signup_error(request):
     return render_to_response('signup.html', {'error': "Password not match",})
+
+@csrf_exempt
+def signup_error2(request):
+    return render_to_response('signup.html', {'error': "Email already exist",})
 
 @csrf_exempt
 def logout(request):

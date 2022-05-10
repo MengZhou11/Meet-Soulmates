@@ -6,6 +6,7 @@ app_name = "soul"
 
 urlpatterns = [
     path('', home.index,),
+    path('error/', home.error,),
     path('index/', home.index,),
     path('forum/', home.forum,),
     path('matching/', home.matching,),
@@ -15,6 +16,7 @@ urlpatterns = [
     path('login/submit/', home.login_submit,),
     path('logout/', home.logout,),
     path('signup/error/', home.signup_error,),
+    path('signup/error2/', home.signup_error2,),
     path('signup/submit/', home.signup_submit,),
     path('forum/<blog_id>', home.post_detail),
     path('post_create/',home.post_create),
