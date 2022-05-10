@@ -137,7 +137,7 @@ def login_submit(request):
         auth.login(request, user)
         return redirect('/index')
     else:
-        return render_to_response('page_404.html')
+        return render_to_response('login.html', {'error': "Password not match",})
 
 @csrf_exempt
 def personality_test(request):
