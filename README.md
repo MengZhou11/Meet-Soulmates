@@ -1,3 +1,10 @@
+# Meet-Soulmates
+
+About machine learning model: model saved, to use the model: 
+#from sklearn.externals import joblib
+import joblib
+model = joblib.load('my_model.pkl')
+
 DEMO: https://www.youtube.com/watch?v=_g64GCTd7v0
 
 # 运行
